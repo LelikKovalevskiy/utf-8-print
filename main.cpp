@@ -20,23 +20,21 @@ void print(unsigned char *str,int new_length)// определяет, сколь
         if(*str>=0x00 && *str<=0x7F)
         {
             ++str;
-            ++counter;
         }
         else if(*str>=0xC2 && *str<=0xDF)
         {
             str+=2;
-            ++counter;
         }
         else if(*str>=0xE0 && *str<=0xEF)
         {
             str+=3;
-            counter+=1;
         }
         else if(*str>=0xF0 && *str<=0xF7)
         {
             str+=4;
-            ++counter;
+
         }
+         ++counter;
     }
     for(int i=0; i<new_length-counter; ++i)
         cout<<' ';
